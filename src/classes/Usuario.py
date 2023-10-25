@@ -7,7 +7,6 @@ class Usuario(db.Model):
     nombre = Column(String(40))
     correo = Column(Integer, String(50), primary_key=True)    
     contraseña = Column(String(50))
-    reglas = relationship("Reglas", back_populates="usuario")
 
     def __init__(self, nombre, correo, contraseña):
         self.nombre=nombre
