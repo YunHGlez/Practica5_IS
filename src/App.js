@@ -12,11 +12,47 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/AccesoYRegistro" element={<AccessoYRegistro />} />
+        <Route path="/AccesoYRegistro" element={<AccessoYRegistro add={addUser} read={readUser}/>} />
       </Routes>
       <Footer />
     </Router>
   );
+}
+
+async function addUser (user) {
+  console.log(user);
+  const response = await fetch('http://127.0.0.1:5000/Registro', {
+    method:'POST',
+    body: JSON.stringify(user),
+    headers: {
+      'Content-Type':'application/json'
+    }
+  });
+  const data = await response.json();
+  console.log(data);
+  if (data.error !== undefined) {
+    alert("ERROR! " + data.error);
+  } else {
+    alert("Usuario registrado!");
+  }
+}
+
+async function readUser (user) {
+  console.log(user);
+  const response = await fetch('http://127.0.0.1:5000/Acceso', {
+    method:'POST',
+    body: JSON.stringify(user),
+    headers: {
+      'Content-Type':'application/json'
+    }
+  });
+  const data = await response.json();
+  console.log(data);
+  if (data.error !== undefined) {
+    alert("ERROR! " + data.error);
+  } else {
+    alert("¡Bienvenido de vuelta " + data.nombre + "!")
+  }
 }
 
 export default App;
