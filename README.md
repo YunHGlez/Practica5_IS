@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+#Práctica 5 - Login completamente funcional 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+###Ingeniería de Software 2024-1
 
-## Available Scripts
+###Equipo 12: Empresaurios
 
-In the project directory, you can run:
+###Integrantes: 
+- Reyes Cedillo Joel Haidd
+- Gallegos Diego Cristian Ricardo
+- González Servín Luis Israel
+- Hernández González Yun
+- Montaño Gómez Eduardo
 
-### `npm start`
+## INSTRUCCIONES DE EJECUCIÓN
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Antes de ejecutar el programa es necesario tener instalado _python3_ en el equipo, _MySQL Workbench_ para inicializar la base de datos, e instalar _react_ mediante el comando siguiente a través de la terminal:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+npm install react
+```
 
-### `npm test`
+Una vez instalado todo lo anterior es necesario inicializar la base de datos ejecutando el 
+archivo ```BaseDeDatos.sql``` a través de MySQL Workbench.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Posteriormente se debe ir al directorio ```venv``` y una vez ahí activar el entorno virtual con el comando:
 
-### `npm run build`
+```
+source ./bin/activate
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Después se debe ir al directorio ```src/Flaskapp``` y una vez ahí iniciar la conexión back-end el comando:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+python3 app.py -m flask run
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Una vez hecho lo anterior se debe abrir otra terminal, ir al directorio ```src``` y correr el front-end mediante el comando:
 
-### `npm run eject`
+```
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+__Nota__: Si el comando anterior no funciona intentar con el comando:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+sudo npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Posteriormente ir a un navegador web y escribir en el buscador la dirección ```http://localhost:3000```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Así se accederá a la página de inicio, y una vez ahí se puede dar click en el botón _Acceder_ para iniciar sesión o crear una nueva cuenta
+__Nota__: la base de datos estará inicialmente vacía por lo que es necesario crear al menos una cuenta primero y posteriormente iniciar sesión con el correo registrado anteriormente.
 
-## Learn More
+Ya que se desee salir de la app recuerde presionar Ctrl+C en las dos terminales abiertas para terminar los procesos y desactivar el entorno virtual con el comando ```deactivate``` en la terminal donde se tenga el entorno activado.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
