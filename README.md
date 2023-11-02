@@ -1,10 +1,10 @@
-#Práctica 5 - Login completamente funcional 
+# Práctica 5 - Login completamente funcional 
 
-###Ingeniería de Software 2024-1
+### Ingeniería de Software 2024-1
 
-###Equipo 12: Empresaurios
+### Equipo 12: Empresaurios
 
-###Integrantes: 
+### Integrantes: 
 - Reyes Cedillo Joel Haidd
 - Gallegos Diego Cristian Ricardo
 - González Servín Luis Israel
@@ -48,8 +48,9 @@ sudo npm start
 
 Posteriormente ir a un navegador web y escribir en el buscador la dirección ```http://localhost:3000```
 
-Así se accederá a la página de inicio, y una vez ahí se puede dar click en el botón _Acceder_ para iniciar sesión o crear una nueva cuenta
+Así se accederá a la página de inicio, y una vez ahí se puede dar click en el botón __Acceder__ para iniciar sesión o crear una nueva cuenta.
+
 __Nota__: la base de datos estará inicialmente vacía por lo que es necesario crear al menos una cuenta primero y posteriormente iniciar sesión con el correo registrado anteriormente.
 
-Ya que se desee salir de la app recuerde presionar Ctrl+C en las dos terminales abiertas para terminar los procesos y desactivar el entorno virtual con el comando ```deactivate``` en la terminal donde se tenga el entorno activado.
+Ya que se desee salir de la app recuerde presionar _Ctrl+C_ en las dos terminales abiertas para terminar los procesos y desactivar el entorno virtual con el comando ```deactivate``` en la terminal donde se tenga el entorno activado.
 
