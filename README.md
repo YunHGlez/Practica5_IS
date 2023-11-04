@@ -28,8 +28,29 @@ Posteriormente se debe ir al directorio ```venv``` y una vez ahí activar el ent
 source ./bin/activate
 ```
 
-Después se debe ir al directorio ```src/Flaskapp``` y una vez ahí iniciar la conexión back-end el comando:
+Después debe ir al directorio ```src/Flaskapp``` y una vez ahí iniciar la conexión back-end el comando:
 
+```
+python3 app.py -m flask run
+```
+
+Si lo anterior arroja algun error referente al entorno virtual, debera hacer lo siguiente:
+
+Desactivar el entorno virtual actual:
+```
+deactivate
+```
+Dirigirse al directorio raiz del proyecto y ejecutar en la terminal
+```
+python3 -m venv environment # Creamos un nuevo entorno virtual
+```
+luego nos dirigimos a la carpeta environment y ejecutamos
+```
+source ./bin/activate # Se activa el ambiente
+pip install -r ../requirements.txt # Instalamos los paquetes necesarios
+```
+
+Después deberá de realizar nuevamente el paso para ejecutar la app dirigiendose al directorio ```src/Flaskapp``` y correr el comando
 ```
 python3 app.py -m flask run
 ```
