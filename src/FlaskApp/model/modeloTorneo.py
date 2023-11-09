@@ -1,7 +1,8 @@
-from classes.Torneo import Torneo
-from classes import db
+from alchemyClasses.Torneo import Torneo
+from alchemyClasses import db
 from datetime import datetime
 from sqlalchemy import update, delete
+from modeloUsuario import get_user_by_key
 
 def get_all_torneos():
     return Torneo.query.all()
@@ -41,8 +42,8 @@ def search_torneo(idTorneo='', nombreTorneo='', numParticipantes='', juego='', f
     return Torneo.query.filter_by(**filter_data)
     
 
-def add_torneo(numParticipantes, juego, fechaInicio, fechaFin,
-                nombreTorneo, consola, correoUsuario):
+def add_torneo(numParticipantes='', juego='', fechaInicio='', fechaFin='',
+                nombreTorneo='', consola='', correoUsuario='', estatus=''):
     try:
         participantes = int(numParticipantes)
     except:
@@ -59,21 +60,28 @@ def add_torneo(numParticipantes, juego, fechaInicio, fechaFin,
         return None
     if(correoUsuario == ''):
         return None
-    torneo = Torneo(participantes, juego, fechaInicio, 
-            fechaFin, nombreTorneo, consola, correoUsuario)
+    if(estatus != 'Finalizado' and estatus != 'En curso' and estatus != 'No iniciado'):
+        return None
+    
+    usuario = get_user_by_key(correoUsuario)
+    if(usuario == None or usuario.rol != 'administrador'):
+        return None
+
+    torneo = Torneo(participantes, juego, fechaInicio, fechaFin,
+                 nombreTorneo, consola, correoUsuario, estatus)
     db.session.add(torneo)
     db.session.commit()
     return torneo
 
 def update_torneo(idTorneo='', nombreTorneo='', nuevoID='', numParticipantes='', juego='', 
-                fechaInicio='', fechaFin='', nuevoNombre='', consola='', correoUsuario=''):
+        fechaInicio='', fechaFin='', nuevoNombre='', consola='', correoUsuario='', estatus=''):
     torneo = None
     if(idTorneo != '' or nombreTorneo != ''):
         torneo = search_torneo(idTorneo, nombreTorneo).first()
     if(torneo != None):
         args = [nuevoID, numParticipantes, juego, fechaInicio, 
-            fechaFin, nuevoNombre, consola, correoUsuario]
-        if(args == ['','','','','','','','','']):
+            fechaFin, nuevoNombre, consola, correoUsuario, estatus]
+        if(args == ['','','','','','','','','','']):
             return torneo
         if(idTorneo != ''):
             if(get_torneo_by_id(idTorneo) != None):

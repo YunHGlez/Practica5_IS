@@ -1,5 +1,5 @@
-from classes.Reglas import Reglas
-from classes import db
+from alchemyClasses.Reglas import Reglas
+from alchemyClasses import db
 from model.modeloTorneo import get_torneo_by_id
 
 def get_all_rents():

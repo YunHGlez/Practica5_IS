@@ -14,10 +14,11 @@ class Torneo(db.Model):
     nombreTorneo = Column(String(50))
     consola = Column(String(30))
     correo = Column(String(50))
+    estatus = Column(String(20))
     reglas = relationship("Reglas", back_populates="torneo")
 
     def __init__(self, numParticipantes, juego, fechaInicio, 
-                 fechaFin, nombreTorneo, consola, correo):
+                 fechaFin, nombreTorneo, consola, correo, estatus):
         fechaInit = datetime.strptime(fechaInicio, '%Y-%m-%d').date()
         fechaEnd = datetime.strptime(fechaFin, '%Y-%m-%d').date()
         self.numParticipantes=numParticipantes
@@ -27,6 +28,7 @@ class Torneo(db.Model):
         self.nombreTorneo=nombreTorneo
         self.consola=consola
         self.correo=correo
+        self.estatus=estatus
 
     
     def __str__(self):

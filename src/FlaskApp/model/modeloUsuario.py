@@ -31,7 +31,7 @@ def user_check_password(email, contraseña):
     return sha256(cipher(contraseña)).hexdigest() == usuario.contraseña
     
 
-def add_user(nombre='', correo='', contraseña=''):
+def add_user(nombre='', correo='', contraseña='', rol=''):
     if(nombre == ''):
         print("Nombre inválido")
         return 1
@@ -41,12 +41,16 @@ def add_user(nombre='', correo='', contraseña=''):
     if(contraseña == ''):
         print("contraseña inválida")
         return 3
+    rol = rol.lower()
+    if(rol != 'super administrador' and rol != 'administrador' and rol != 'participante'):
+        print("Rol inválido")
+        return 4
     passwd = sha256(cipher(contraseña)).hexdigest()
     consult = Usuario.query.filter(Usuario.correo == correo)
     if(consult.count() > 0):
         print("Ya hay un usuario registrado con ese correo")
-        return 4
-    usuario = Usuario(nombre, correo, passwd)
+        return 5
+    usuario = Usuario(nombre, correo, passwd, rol)
     db.session.add(usuario)
     db.session.commit()
     return 0

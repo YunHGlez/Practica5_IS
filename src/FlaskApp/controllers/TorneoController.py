@@ -22,7 +22,7 @@ def actualizar_torneo(id):
         fechaFin = request.form['fin']
         consola = request.form['consola']
         correoUsuario = request.form['correo']
-        status1 = add_torneo(id_torneo, nombreTorneo, numParticipantes, juego, fechaInicio, fechaFin, consola, correoUsuario)
+        status1 = update_torneo(id_torneo, nombreTorneo, numParticipantes, juego, fechaInicio, fechaFin, consola, correoUsuario)
         return redirect(url_for('torneo.torneo_controller'))
     else:
         torneo = get_torneo_by_id(int(id))
@@ -39,7 +39,7 @@ def registrar_torneo():
         fechaFin = request.form['fin']
         consola = request.form['consola']
         correoUsuario = request.form['correo']
-        status1 = update_torneo(id_torneo, nombreTorneo, numParticipantes, juego, fechaInicio, fechaFin, consola, correoUsuario)
+        status1 = add_torneo(id_torneo, nombreTorneo, numParticipantes, juego, fechaInicio, fechaFin, consola, correoUsuario)
         return redirect(url_for('torneo.torneo_controller'))
 
 @torneo.route('/eliminar/<string:id>', methods = ('GET', 'POST'))
